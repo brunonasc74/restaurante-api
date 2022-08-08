@@ -1,6 +1,5 @@
-#  Sorteador 
-> Este é um projeto pessoal que eu estou desenvolvendo para fins de estudo.
-
+#  Projeto Final - Módulo 4
+> Este é um projeto para a avaliação do final do Módulo 4 @ Resilia Educação.
 ## 📈 Andamento do projeto  
 ![andamento do projeto](https://img.shields.io/badge/status-em%20andamento-yellow?style=for-the-badge&logo=appveyor)
 
