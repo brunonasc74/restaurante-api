@@ -9,4 +9,4 @@ process.on('SIGINT', () =>
 	})
 );
 
-module.exports = bd;
+export default bd;
