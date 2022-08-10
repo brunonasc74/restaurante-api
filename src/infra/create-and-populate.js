@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS "BEBIDAS" (
     "Descricao" VARCHAR(200),
     "Imagem" VARCHAR(100),
     "Porcao" VARCHAR(20),
-    "Preco" INT
+    "Preco" INTEGER
 )`;
 
 const ADD_BEBIDAS_DATA = `
@@ -112,35 +112,57 @@ function populaTabelaBebidas() {
 	});
 }
 
-// // Criando e populando schema de pedidos
+// Criando e populando schema de pedidos
 
-// const PEDIDOS_SCHEMA = `
-// CREATE TABLE IF NOT EXISTS "PEDIDOS" (
-//     "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
-//     "ID_CLIENTE" INTEGER, FOREIGN KEY (ID_CLIENTE) REFERENCES CLIENTES(ID),
-//     "ID_CARDAPIO" INTEGER, FOREIGN KEY (ID_CARDAPIO) REFERENCES CARDAPIO(ID),
-//     "ID_BEBIDAS" INTEGER, FOREIGN KEY (ID_BEBIDAS) REFERENCES BEBIDAS(ID)
-//   );`;
+const PEDIDOS_SCHEMA = `
+CREATE TABLE IF NOT EXISTS "PEDIDOS" (
+    "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "ID_CLIENTE" INTEGER, 
+    "ID_CARDAPIO" INTEGER, 
+    "ID_BEBIDAS" INTEGER, 
+    FOREIGN KEY (ID_CLIENTE) REFERENCES CLIENTES(ID),
+    FOREIGN KEY (ID_CARDAPIO) REFERENCES CARDAPIO(ID),
+    FOREIGN KEY (ID_BEBIDAS) REFERENCES BEBIDAS(ID)
+  )`;
 
-// function criaTabelaPedidos() {
-// 	db.run(PEDIDOS_SCHEMA, error => {
-// 		if (error) console.log('Erro ao criar tabela de pedidos');
-// 	});
-// }
+const ADD_PEDIDOS_DATA = `
+INSERT INTO PEDIDOS (ID, ID_CLIENTE, ID_CARDAPIO, ID_BEBIDAS)
+VALUES
+   (1, 2, 1, 1),
+   (2, 3, 2, 5),
+   (3, 1, 4, 2),
+   (4, 5, 1, 3),
+   (5, 4, 3, 4),
+   (6, 2, null, 4)
+)`;
 
-// // Criando e populando schema de mesas
+function criaTabelaPedidos() {
+	db.run(PEDIDOS_SCHEMA, error => {
+		if (error) console.log('Erro ao criar tabela de pedidos');
+	});
+}
 
-// const MESAS_SCHEMA = `
-// CREATE TABLE IF NOT EXISTS "MESAS" (
-//     "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
-//     "Reserva" BIT NOT NULL DEFAULT 0,
-// );`;
+function populaTabelaPedidos() {
+	db.run(ADD_PEDIDOS_DATA, error => {
+		if (error) console.log('Erro ao popular tabela de pedidos');
+	});
+}
 
-// function criaTabelaMesas() {
-// 	db.run(MESAS_SCHEMA, error => {
-// 		if (error) console.log('Erro ao criar tabela de mesas');
-// 	});
-// }
+// Criando e populando schema de mesas
+
+
+
+function criaTabelaMesas() {
+	db.run(MESAS_SCHEMA, error => {
+		if (error) console.log('Erro ao criar tabela de mesas');
+	});
+}
+
+function populaTabelaMesas() {
+	db.run(ADD_MESAS_DATA, error => {
+		if (error) console.log('Erro ao popular tabela de mesas');
+	});
+}
 
 db.serialize(() => {
 	criaTabelaClientes();
@@ -149,4 +171,8 @@ db.serialize(() => {
 	populaTabelaCardapio();
 	criaTabelaBebidas();
 	populaTabelaBebidas();
+    // criaTabelaPedidos();
+	// populaTabelaPedidos();
+    // criaTabelaMesas();
+	// populaTabelaMesas()
 });
