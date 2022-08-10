@@ -39,7 +39,13 @@ como:
 
 ## 2.0 - 📄 Documentação
 
+### 2.1 - Como instalar as dependências do projeto
 
+### 2.2 - Como executar o projeto
+
+### 2.3 - Rotas possíveis
+
+### 2.4 - Observações
 
 ## 3.0 - 💡 Impressões sobre o projeto
 
