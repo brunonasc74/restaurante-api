@@ -44,22 +44,22 @@ CREATE TABLE IF NOT EXISTS "CARDAPIO" (
     "Descricao" VARCHAR(200),
     "Imagem" VARCHAR(500),
     "Porcao" VARCHAR(20),
-    "Preco" INT
+    "Preco" INTEGER
 )`;
 
 const ADD_CARDAPIO_DATA = `
 INSERT INTO CARDAPIO (ID, NOME, CATEGORIA, DESCRICAO, IMAGEM, PORCAO, PRECO)
 VALUES
     (1, 'Pão de queijo',                 'Comida regional', 'Massa de polvilho e queijo, diretamente de Minas',                     
-    'https://cdn.discordapp.com/attachments/988224567619244072/1006791890265448468/pao-de-queijo.jpeg', '6 unidades', '8'),
+    'https://cdn.discordapp.com/attachments/988224567619244072/1006791890265448468/pao-de-queijo.jpeg', '6 unidades', 8),
     (2, 'Acarajé',                       'Comida regional', 'Bolinho de feijão fradinho, recheado com vatapá, vinagrete e camarão', 
-    'https://cdn.discordapp.com/attachments/988224567619244072/1006791708853415977/acaraje.jpg', '500 gramas', '22'),
+    'https://cdn.discordapp.com/attachments/988224567619244072/1006791708853415977/acaraje.jpg', '500 gramas', 22),
     (3, 'Almôndegas ao molho',           'Comida casual',   'Deliciosas almôndegas com molho à escolha',                            
-    'https://cdn.discordapp.com/attachments/988224567619244072/1006791889242050611/almondega.jpg', '500 gramas', '25'),
+    'https://cdn.discordapp.com/attachments/988224567619244072/1006791889242050611/almondega.jpg', '500 gramas', 25),
     (4, 'Risotto ao camarão',            'Comida italiana', 'Arroz arbóreo ao molho com camarão',                                   
-    'https://cdn.discordapp.com/attachments/988224567619244072/1006791889892151327/risoto-de-camarao.jpg', '400 gramas', '68'),
+    'https://cdn.discordapp.com/attachments/988224567619244072/1006791889892151327/risoto-de-camarao.jpg', '400 gramas', 68),
     (5, 'Filet Mignon ao molho madeira', 'Comida de rico',  'Carne nobre com preço exorbitante',                                    
-    'https://cdn.discordapp.com/attachments/988224567619244072/1006791889573396480/file-mignon-ao-molho-madeira.jpg', '250 gramas', '97')`;
+    'https://cdn.discordapp.com/attachments/988224567619244072/1006791889573396480/file-mignon-ao-molho-madeira.jpg', '250 gramas', 97)`;
 
 function criaTabelaCardapio() {
 	db.run(CARDAPIO_SCHEMA, error => {
@@ -90,15 +90,15 @@ const ADD_BEBIDAS_DATA = `
 INSERT INTO BEBIDAS (ID, NOME, CATEGORIA, DESCRICAO, IMAGEM, PORCAO, PRECO)
 VALUES
     (1, 'Guaraná Mineiro', 'Refrigerante',    'Deliciosa bebida refrescante', 
-    'https://cdn.discordapp.com/attachments/988224567619244072/1006794688520519740/guarana-mineiro.jpeg', '2 litros', '8'),
+    'https://cdn.discordapp.com/attachments/988224567619244072/1006794688520519740/guarana-mineiro.jpeg', '2 litros', 8),
     (2, 'Coca-Cola',       'Refrigerante',    'Deliciosa bebida refrescante', 
-    'https://cdn.discordapp.com/attachments/988224567619244072/1006794864547074099/coca-cola.webp', '2 litros', '7'),
+    'https://cdn.discordapp.com/attachments/988224567619244072/1006794864547074099/coca-cola.webp', '2 litros', 7),
     (3, 'Água de Coco',    'Bebida tropical', 'Água fresca direta do coco',   
-    'https://cdn.discordapp.com/attachments/988224567619244072/1006795031593615490/agua-de-coco.jpg', '500 ml', '7'),
+    'https://cdn.discordapp.com/attachments/988224567619244072/1006795031593615490/agua-de-coco.jpg', '500 ml', 7),
     (4, 'Suco de laranja', 'Suco',            'Suco natural de laranja',      
-    'https://cdn.discordapp.com/attachments/988224567619244072/1006795177739948082/suco-de-laranja.jpg', '500 ml', '5'),
+    'https://cdn.discordapp.com/attachments/988224567619244072/1006795177739948082/suco-de-laranja.jpg', '500 ml', 5),
     (5, 'Caipirinha',      'Bebida alcólica', 'Proibido para menores',        
-    'https://cdn.discordapp.com/attachments/988224567619244072/1006795627591639050/caipirinha.webp', '500 ml', '20')`;
+    'https://cdn.discordapp.com/attachments/988224567619244072/1006795627591639050/caipirinha.webp', '500 ml', 20)`;
 
 function criaTabelaBebidas() {
 	db.run(BEBIDAS_SCHEMA, error => {
@@ -133,8 +133,7 @@ VALUES
    (3, 1, 4, 2),
    (4, 5, 1, 3),
    (5, 4, 3, 4),
-   (6, 2, null, 4)
-)`;
+   (6, 2, null, 4)`;
 
 function criaTabelaPedidos() {
 	db.run(PEDIDOS_SCHEMA, error => {
@@ -150,7 +149,20 @@ function populaTabelaPedidos() {
 
 // Criando e populando schema de mesas
 
+const MESAS_SCHEMA = `
+CREATE TABLE IF NOT EXISTS "MESAS" (
+    "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
+	"Reserva" BIT NOT NULL DEFAULT 0
+  )`;
 
+const ADD_MESAS_DATA = `
+INSERT INTO MESAS (ID, RESERVA)
+VALUES
+   (1, 1),
+   (2, 0),
+   (3, 0),
+   (4, 1),
+   (5, 0)`;
 
 function criaTabelaMesas() {
 	db.run(MESAS_SCHEMA, error => {
@@ -171,8 +183,8 @@ db.serialize(() => {
 	populaTabelaCardapio();
 	criaTabelaBebidas();
 	populaTabelaBebidas();
-    // criaTabelaPedidos();
-	// populaTabelaPedidos();
-    // criaTabelaMesas();
-	// populaTabelaMesas()
+	criaTabelaPedidos();
+	populaTabelaPedidos();
+	criaTabelaMesas();
+	populaTabelaMesas();
 });
