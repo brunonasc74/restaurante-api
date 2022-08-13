@@ -13,9 +13,12 @@ module.exports = (sequelize, DataTypes) => {
 			Pedidos.belongsTo(models.Bebidas, { foreignKey: 'bebida_id' });
 		}
 	}
-	Pedidos.init({
-		sequelize,
-		modelName: 'Pedidos',
-	});
+	Pedidos.init(
+		{},
+		{
+			sequelize,
+			modelName: 'Pedidos',
+		}
+	);
 	return Pedidos;
 };
