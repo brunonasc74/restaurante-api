@@ -9,6 +9,7 @@ module.exports = {
 				type: Sequelize.INTEGER,
 			},
 			nome: {
+				allowNull: false,
 				type: Sequelize.STRING,
 			},
 			categoria: {
@@ -24,6 +25,7 @@ module.exports = {
 				type: Sequelize.STRING,
 			},
 			preco: {
+				allowNull: false,
 				type: Sequelize.FLOAT,
 			},
 			createdAt: {
