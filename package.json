@@ -2,9 +2,29 @@
   "dependencies": {
     "express": "^4.18.1",
     "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19",
     "path": "^0.12.7",
     "sequelize": "^6.21.3",
     "sequelize-cli": "^6.4.1",
     "sqlite3": "^5.0.11"
-  }
+  },
+  "name": "projeto-final-m4",
+  "description": "> Este é um projeto para a avaliação do final do Módulo 4 @ Resilia Educação.\r ## 📈 Andamento do projeto  \r ![andamento do projeto](https://img.shields.io/badge/status-em%20andamento-yellow?style=for-the-badge&logo=appveyor)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunonasc74/projeto-final-m4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunonasc74/projeto-final-m4/issues"
+  },
+  "homepage": "https://github.com/brunonasc74/projeto-final-m4#readme"
 }
