@@ -1,13 +1,12 @@
+const BebidaController = require('../controllers/BebidaController');
 const { Router } = require('express');
-const BebidasController = require('../controllers/BebidasController');
+const route = Router();
 
+route
+	.get('/bebidas', BebidaController.pegaTodasBebidas)
+	.get('/bebidas/:id', BebidaController.pegaUmaBebida)
+	.post('/bebidas', BebidaController.criaBebida)
+	.put('/bebidas/:id', BebidaController.atualizaBebida)
+	.delete('/bebidas/:id', BebidaController.apagaBebida);
 
-const router = Router();
-
-router.get('/bebidas', BebidasController.pegaTodasBebidas);
-router.get('/bebidas/:id', BebidasController.pegaUmaBebidas);
-router.post('/bebidas', BebidasController.criaBebida);
-router.put('/bebidas/:id', BebidasController.atualizaBebida);
-router.delete('/bebidas/:id', BebidasController.deletaBebida);
-
-module.exports = router;
+module.exports = route;
