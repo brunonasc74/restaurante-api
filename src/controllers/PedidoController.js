@@ -9,7 +9,7 @@ class PedidoController {
      } catch (error) {
        return res.status(500).json(error.message);
      }
-   }
+   };
 
    // get - retorna um pedido
    static async pegaUmPedido(req, res) {
@@ -20,7 +20,7 @@ class PedidoController {
     } catch (error) {
       return res.status(500).json(error.message);
     }
-   }
+   };
 
    // post - Cadastra um novo pedido
    static async cadastraPedido(req,res) {
@@ -31,7 +31,7 @@ class PedidoController {
        } catch (error) {
         return res.status(500).json(error.message);
        }
-   }
+   };
 
    //Put - Atualiza um pedido
    static async atualizaPedido(req, res) {
@@ -43,7 +43,18 @@ class PedidoController {
      } catch (error) {
       return res.status(500).json(`Não foi possivel atualizar o pedido: ${error.message}`);
      }
-   }
+   };
+
+   //Delete - Deleta um pedido
+   static async deletaPedido(req, res) {
+    const {id} = req.params;
+    try {
+       await database.Pedidos.destroy({where:{id: Number(id) }});
+       return res.status(200).json(`mensagem: O pedido com o id ${id} foi deletado com suceso`);
+    } catch (error) {
+      return res.status(500).json(error.message);
+    }
+   };
 
 }
 
