@@ -7,7 +7,7 @@ class ClienteController {
 			const todosClientes = await database.Clientes.findAll();
 			return res.status(200).send(todosClientes);
 		} catch (err) {
-			res.status(500).send(err);
+			res.status(500).send(err.message);
 		}
 	}
 
@@ -20,7 +20,7 @@ class ClienteController {
 			if (!umCliente) return res.status(404).send(`Cliente de id ${id} não existe`);
 			return res.status(200).send(umCliente);
 		} catch (err) {
-			res.status(500).send(err);
+			res.status(500).send(err.message);
 		}
 	}
 
@@ -31,7 +31,7 @@ class ClienteController {
 			await database.Clientes.create(umCliente);
 			return res.status(201).send('Cliente adicionado com sucesso');
 		} catch (err) {
-			res.status(500).send(err);
+			res.status(500).send(err.message);
 		}
 	}
 
@@ -46,7 +46,7 @@ class ClienteController {
 			if (!clienteEditado) return res.status(404).send(`Cliente de id ${id} não existe`);
 			return res.status(200).send(`Cliente de id ${id} atualizado com sucesso`);
 		} catch (err) {
-			res.status(500).send(err);
+			res.status(500).send(err.message);
 		}
 	}
 
@@ -61,7 +61,7 @@ class ClienteController {
 			await database.Clientes.destroy({ where: { id: +id } });
 			return res.status(200).send(`${umCliente.nome} de id ${id} apagado com sucesso`);
 		} catch (err) {
-			res.status(500).send(err);
+			res.status(500).send(err.message);
 		}
 	}
 }
