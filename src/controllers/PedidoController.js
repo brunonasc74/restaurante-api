@@ -22,7 +22,7 @@ class PedidoController {
     }
    }
 
-   // post - cadastra um novo pedido
+   // post - Cadastra um novo pedido
    static async cadastraPedido(req,res) {
       const novoPedido = req.body;
        try {
