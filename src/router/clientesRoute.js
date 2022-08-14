@@ -7,6 +7,8 @@ route
 	.get('/clientes/:id', ClienteController.pegaUmCliente)
 	.post('/clientes', ClienteController.criaCliente)
 	.put('/clientes/:id', ClienteController.editaCliente)
-	.delete('/clientes/:id', ClienteController.apagaCliente);
+	.delete('/clientes/:id', ClienteController.apagaCliente)
+	.get('/clientes/pedidos/:id', ClienteController.pegaPedidosDeCliente)
+	.delete('/clientes/pedidos/:id', ClienteController.apagaPedidosDeCliente);
 
 module.exports = route;
