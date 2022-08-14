@@ -71,9 +71,12 @@ npm start
 | ------ | ----- | ----------- |
 | **GET** | `/clientes` | Retorna toda a tabela de clientes. |
 | **GET** | `/clientes/`<strong>id | Retorna o cliente específico do id. |
+| **GET** | `/clientes/pedidos`/<strong>id | Retorna todos os pedidos do cliente específico do id. |
 | **POST** | `/clientes` | Popula a entidade clientes.  |
 | **PUT** | `/clientes/`<strong>id | Atualiza os dados do cliente especificado no id.
 | **DELETE** | `/clientes/`<strong>id | Deleta o cliente com o id especificado.
+| **DELETE** | `/clientes/pedidos/`<strong>id</strong> | Deleta todos os pedidos do cliente específico do id.
+
 <br>
 2. Entidade <strong>cardápio</strong>.
 
