@@ -13,6 +13,7 @@ class BebidaController {
 		const { id } = req.params;
 		try {
 			const umaBebida = await database.Bebidas.findOne({ where: { id: Number(id) } });
+			if (!umaBebida) return res.status(404).send(`Bebida de id ${id} não existe`);
 			return res.status(200).json(umaBebida);
 		} catch (err) {
 			return res.status(500).json(err.message);
@@ -33,8 +34,8 @@ class BebidaController {
 			const novasInfo = await req.body;
 			await database.Bebidas.update(novasInfo, { where: { id: +id } });
 			const bebidaAtualizada = await database.Bebidas.findOne({ where: { id: +id } });
-			if (!bebidaAtualizada) return res.status(404).send(`Reserva de id ${id} não existe`);
-			return res.status(200).send(`Reserva de id ${id} atualizada com sucesso`);
+			if (!bebidaAtualizada) return res.status(404).send(`Bebida de id ${id} não existe`);
+			return res.status(200).send(`Bebida de id ${id} atualizada com sucesso`);
 		} catch (err) {
 			res.status(500).send(err.message);
 		}
@@ -42,10 +43,12 @@ class BebidaController {
 	static async apagaBebida(req, res) {
 		const { id } = req.params;
 		try {
+			const umaBebida = await database.Bebidas.findOne({ where: { id: +id } });
+			if (!umaBebida) return res.status(404).send(`Bebida de id ${id} não existe`);
 			await database.Bebidas.destroy({ where: { id: Number(id) } });
-			return res.status(200).json({ mensagem: `id ${id} deletado` });
+			return res.status(200).send(`id ${id} deletado`);
 		} catch (err) {
-			return res.status(500).json(err.message);
+			return res.status(500).send(err.message);
 		}
 	}
 }

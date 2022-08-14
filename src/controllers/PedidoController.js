@@ -47,8 +47,10 @@ class PedidoController {
 	static async apagaPedido(req, res) {
 		const { id } = req.params;
 		try {
+			const umPedido = await database.Bebidas.findOne({ where: { id: +id } });
+			if (!umPedido) return res.status(404).send(`Pedido de id ${id} não existe`);
 			await database.Pedidos.destroy({ where: { id: Number(id) } });
-			return res.status(200).json({ mensagem: `id ${id} deletado` });
+			return res.status(200).json({ mensagem: `Pedido ${id} deletado` });
 		} catch (error) {
 			return res.status(500).json(error.message);
 		}
