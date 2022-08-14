@@ -10,24 +10,23 @@
 - A entrega do projeto será feita em um repositório só.
 
 ### 1.1 - 🗝 Demandas do projeto
-- [ ] Utilizar o ``padrão MVC``;
-- [ ] Utilizar os verbos HTTP seguindo o ``padrão REST``;
-- [ ] Implementar todas as operações de ``CRUD``;
-- [ ] Utilizar o padrão de projeto ``(design pattern) DAO`` para abstração de transações no banco, com Promises;
+- [X] Utilizar os verbos HTTP seguindo o ``padrão REST``;
+- [X] Implementar todas as operações de ``CRUD``;
+- [X] Utilizar o padrão de projeto ``(design pattern) DAO`` para abstração de transações no banco, com Promises;
 - [ ] Utilizar o README.md do repositório para ``documentação``, contendo informações
 como:
   - Como instalar as dependências do projeto;
   - Como executar o projeto;
   - Quais são as rotas possíveis;
   - Quaisquer outros pontos que você achar necessários;
-- [ ] Utilização de ``async/await`` para operações no banco (DAO)
-- [ ] Ter o código fonte hospedado em um repositório no Github.
+- [X] Utilização de ``async/await`` para operações no banco (DAO)
+- [X] Ter o código fonte hospedado em um repositório no Github.
 
 ### 1.2 - ✨ Extras
 - [ ] Testes automatizados utilizando frameworks;
 - [ ] Hospedagem da API no Heroku;
 - [ ] Validação e verificação de dados (tipo e características) utilizando models;
-- [ ] Utilização de algum ORM ou ODM acompanhado de banco de dados de escolha.
+- [X] Utilização de algum ORM ou ODM acompanhado de banco de dados de escolha.
 
 
 ### 1.3 - 🖱 Tecnologias
@@ -35,7 +34,7 @@ como:
 
 ### 1.4 - ✔ To do
 - [X] Escrever README ``[em andamento]``
-- [ ] Estruturar o projeto
+- [X] Estruturar o projeto
 
 ## 2.0 - 📄 Documentação
 
