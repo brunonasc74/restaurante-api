@@ -46,8 +46,8 @@ class CardapioController {
       if (!cardapioAtualizado)
         return res
           .status(404)
-          .send(`Cardapio de id ${id} atualizado com sucesso`);
-      return res.status(200).send(cardapioAtualizado);
+          .send(`Cardapio de id ${id} não existe`);
+      return res.status(200).send(`Cardápio de id ${id} atualizado`);
     } catch (err) {
       res.status(500).send(err);
     }
@@ -61,8 +61,8 @@ class CardapioController {
       if (!cardapioDeletado)
         return res
           .status(404)
-          .send(`Cardapio de id ${id} deletado com sucesso`);
-      return res.status(200).send(cardapioDeletado);
+          .send(`Cardapio de id ${id} não existe`);
+      return res.status(200).send(`Cardápio de id ${id} deletado com sucesso`);
     } catch (err) {
       res.status(500).send(err);
     }
