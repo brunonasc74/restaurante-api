@@ -29,7 +29,7 @@ como:
 
 
 ### 1.3 - 🖱 Tecnologias
-![Tecnologias](https://skillicons.dev/icons?i=nodejs,express)(https://skillicons.dev)
+![Tecnologias](https://skillicons.dev/icons?i=nodejs,express)
 
 ### 1.4 - ✔ To do
 - [X] Escrever README ``[em andamento]``
@@ -122,4 +122,8 @@ npm start
 <div align='center'>
 
 [Bruno Nascimento](https://github.com/brunonasc74) | [Shiellyn Ferreira](https://github.com/ShiellynFerr) | [Kelly Alves](https://github.com/KellySanttos) | 
-[Artur Tolentino](https://github.com/ArturTolentino) | [Bruna Xavier](https://github.com/bruxvr) </div>
+[Artur Tolentino](https://github.com/ArturTolentino) | [Bruna Xavier](https://github.com/bruxvr) 
+  
+  ### [⬆ Voltar ao Topo](#projeto-final---módulo-4)
+  
+  </div>
