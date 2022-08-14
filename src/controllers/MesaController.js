@@ -24,10 +24,24 @@ class MesaController {
 
    //cria uma nova reserva - post
 static async criaReserva(req, res) {
+    const novaReserva = req.body
     try {
-        const novaReserva  = req.body;
+        const novaReservaCriada  = 
         await database.Mesas.create(novaReserva);
-        return res.status(201).send('Mesa reservada com sucesso');
+        return res.status(201).json(novaReservaCriada);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+}
+
+//atualizar uma reservar
+static async atualizaReserva(req, res) {
+    const { id } = req.params
+    const novasInfos = req.body
+    try {
+        await database.Mesas.update(novasInfos, {where: {id: Number(id) }});
+        const reservaAtualizada = await database.Mesas.findOne({where: {id: Number(id) }});
+        return res.status(200).json(reservaAtualizada)
     } catch (error) {
         res.status(500).send(error.message);
     }
