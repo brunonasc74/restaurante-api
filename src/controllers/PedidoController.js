@@ -11,6 +11,7 @@ class PedidoController {
      }
    }
 
+   // get - retorna um pedido
    static async pegaUmPedido(req, res) {
     const {id} = req.params
     try {
@@ -21,7 +22,17 @@ class PedidoController {
     }
    }
 
-  
+   // post - cadastra um novo pedido
+   static async cadastraPedido(req,res) {
+      const novoPedido = req.body;
+       try {
+           const novoPedidoCriado = await database.Pedidos.create(novoPedido);
+           return res.status(201).json(novoPedidoCriado);
+       } catch (error) {
+        return res.status(500).json(error.message);
+       }
+   }
+
 }
 
 module.exports = PedidoController;
