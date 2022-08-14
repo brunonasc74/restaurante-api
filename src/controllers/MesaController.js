@@ -22,7 +22,7 @@ class MesaController {
     }
    }
 
-   //cria uma nova reserva - post
+   //post - cria uma nova reserva
 static async criaReserva(req, res) {
     const novaReserva = req.body
     try {
@@ -34,16 +34,18 @@ static async criaReserva(req, res) {
     }
 }
 
-//atualizar uma reservar
+//put - atualiza uma reservar
 static async atualizaReserva(req, res) {
-    const { id } = req.params
-    const novasInfos = req.body
+    const { id } = req.params;
     try {
-        await database.Mesas.update(novasInfos, {where: {id: Number(id) }});
-        const reservaAtualizada = await database.Mesas.findOne({where: {id: Number(id) }});
-        return res.status(200).json(reservaAtualizada)
-    } catch (error) {
-        res.status(500).send(error.message);
+        const novasInfo = await req.body;
+        await database.Clientes.update(novasInfo, { where: { id: +id } });
+        // retorna reserva editada caso exista. Se não, retorna uma mensagem de erro
+        const reservaAtualizada = await database.Mesas.findOne({ where: { id: +id } });
+        if (!reservaAtualizada) return res.status(404).send(`Reserva de id ${id} não existe`);
+        return res.status(200).send(`Reserva de id ${id} atualizada com sucesso`);
+    } catch (err) {
+        res.status(500).send(err);
     }
 }
 }
