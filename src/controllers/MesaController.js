@@ -34,7 +34,7 @@ static async criaReserva(req, res) {
     }
 }
 
-//put - atualiza uma reservar
+//put - atualiza uma reserva
 static async atualizaReserva(req, res) {
     const { id } = req.params;
     try {
@@ -48,6 +48,18 @@ static async atualizaReserva(req, res) {
         res.status(500).send(err);
     }
 }
+
+//delete - deleta uma reserva
+ static async apagaReserva(req, res) {
+    const { id } = req.params
+    try {
+        await database.Mesas.destroy({where: {id: Number(id) }})
+        return res.status(200).json({ mensagem: `id ${id} deletado` })
+    } catch (error) {
+        return res.status(500).json(error.message)
+    }
+ } 
 }
+
 
 module.exports = MesaController;
