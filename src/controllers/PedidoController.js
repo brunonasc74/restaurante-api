@@ -33,6 +33,18 @@ class PedidoController {
        }
    }
 
+   //Put - Atualiza um pedido
+   static async atualizaPedido(req, res) {
+    const {id} = req.params;
+    const pedidoAtualizado = req.body;
+     try {
+        await database.Pedidos.update(pedidoAtualizado,{where:{id: Number(id) }});
+        return res.status(200).json(pedidoAtualizado);
+     } catch (error) {
+      return res.status(500).json(`Não foi possivel atualizar o pedido: ${error.message}`);
+     }
+   }
+
 }
 
 module.exports = PedidoController;
