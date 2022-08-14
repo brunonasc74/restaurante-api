@@ -88,35 +88,35 @@ npm start
 | **PUT** | `/cardapios/`<strong>id | Atualiza os dados da comida do cardápio especificado no id
 | **DELETE** | `/cardapios/`<strong>id | Deleta a comida com o id especificado do cardápio.
 <br>
-3. Entidade <strong>bebidas</bebidas>.
+3. Entidade <strong>bebidas</strong>.
 
 | Método | Rota | Descrição |
 | ------ | ----- | ----------- |
 | **GET** | `/bebidas` | Retorna toda a tabela de bebidas. |
-| **GET** | `/bebidas/`<strong>id | Retorna a bebida específica do id. |
+| **GET** | `/bebidas/`<strong>id</strong> | Retorna a bebida específica do id. |
 | **POST** | `/bebidas` | Popula a entidade bebidas.  |
-| **PUT** | `/bebidas/`<strong>id | Atualiza os dados da bebida especificada no id.
-| **DELETE** | `/bebidas/`<strong>id | Deleta a bebida com o id especificado.
+| **PUT** | `/bebidas/`<strong>id</strong> | Atualiza os dados da bebida especificada no id.
+| **DELETE** | `/bebidas/`<strong>id</strong> | Deleta a bebida com o id especificado.
 <br>
-4. Entidade <strong>pedidos</bebidas>.
+4. Entidade <strong>pedidos</strong>.
 
 | Método | Rota | Descrição |
 | ------ | ----- | ----------- |
 | **GET** | `/pedidos` | Retorna toda a tabela de pedidos. |
-| **GET** | `/pedidos`<strong>id | Retorna o pedido específico do id. |
+| **GET** | `/pedidos`<strong>id</strong> | Retorna o pedido específico do id. |
 | **POST** | `/pedidos` | Popula a entidade pedidos.  |
-| **PUT** | `/pedidos`<strong>id | Atualiza os dados do pedido especifico no id.
-| **DELETE** | `/pedidos`<strong>id | Deleta o pedido com o id especificado.
+| **PUT** | `/pedidos`<strong>id</strong> | Atualiza os dados do pedido especifico no id.
+| **DELETE** | `/pedidos`<strong>id</strong> | Deleta o pedido com o id especificado.
 <br>
-5. Entidade <strong>mesas</bebidas>.
+5. Entidade <strong>mesas</strong>.
 
 | Método | Rota | Descrição |
 | ------ | ----- | ----------- |
 | **GET** | `/mesas` | Retorna toda a tabela de mesas. |
-| **GET** | `/mesas`<strong>id | Retorna a mesa específica do id. |
+| **GET** | `/mesas`<strong>id</strong> | Retorna a mesa específica do id. |
 | **POST** | `/mesas` | Popula a entidade mesas.  |
-| **PUT** | `/mesas`<strong>id | Atualiza os dados da mesa especifico no id.
-| **DELETE** | `/mesas`<strong>id | Deleta a mesa com o id especificado.
+| **PUT** | `/mesas`<strong>id</strong> | Atualiza os dados da mesa especifico no id.
+| **DELETE** | `/mesas`<strong>id</strong> | Deleta a mesa com o id especificado.
 
 ### 2.4 - Observações
 
