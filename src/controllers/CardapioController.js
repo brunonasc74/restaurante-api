@@ -45,10 +45,10 @@ class CardapioController {
 	static async deletaCardapio(req, res) {
 		const { id } = req.params;
 		try {
-			const cardapioDeletado = await database.Cardapios.destroy({
-				where: { id: +id },
-			});
-			if (!cardapioDeletado) return res.status(404).send(`Cardapio de id ${id} não existe`);
+			const umCardapio = await database.Cardapios.findOne({ where: { id: +id } });
+			if (!umCardapio) return res.status(404).send(`Cardapio de id ${id} não existe`);
+			await database.Pedidos.update({ cardapio_id: null }, { where: { cardapio_id: +id } });
+			await database.Cardapios.destroy({ where: { id: +id } });
 			return res.status(200).send(`Cardápio de id ${id} deletado com sucesso`);
 		} catch (err) {
 			res.status(400).send(err.message);

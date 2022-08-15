@@ -58,8 +58,9 @@ class ClienteController {
 			const umCliente = await database.Clientes.findOne({ where: { id: +id } });
 			if (!umCliente) return res.status(404).send(`Cliente de id ${id} não existe`);
 			// apagar id selecionado
+			await database.Pedidos.destroy({ where: { cliente_id: +id } });
 			await database.Clientes.destroy({ where: { id: +id } });
-			return res.status(200).send(`${umCliente.nome} de id ${id} apagado com sucesso`);
+			return res.status(200).send(`Cliente ${umCliente.nome} de id ${id} apagado com sucesso`);
 		} catch (err) {
 			res.status(400).send(err.message);
 		}

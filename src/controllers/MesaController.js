@@ -6,7 +6,7 @@ class MesaController {
 			const todasMesas = await database.Mesas.findAll();
 			return res.status(200).json(todasMesas);
 		} catch (error) {
-			return res.status(400).json(error.message);
+			res.status(400).json(error.message);
 		}
 	}
 
@@ -16,7 +16,7 @@ class MesaController {
 			const umaMesa = await database.Mesas.findOne({ where: { id: Number(id) } });
 			return res.status(200).json(umaMesa);
 		} catch (error) {
-			return res.status(400).json(error.message);
+			res.status(400).json(error.message);
 		}
 	}
 
@@ -39,7 +39,7 @@ class MesaController {
 			if (!mesaAtualizada) return res.status(404).send(`Mesa de id ${id} não existe`);
 			return res.status(200).send(`Mesa de id ${id} atualizada com sucesso`);
 		} catch (err) {
-			res.status(400).send(error.message);
+			res.status(400).send(err.message);
 		}
 	}
 
@@ -47,9 +47,9 @@ class MesaController {
 		const { id } = req.params;
 		try {
 			await database.Mesas.destroy({ where: { id: Number(id) } });
-			return res.status(200).json({ mensagem: `Mesa id ${id} deletado` });
-		} catch (error) {
-			return res.status(400).json(error.message);
+			return res.status(200).send(`Mesa id ${id} deletado`);
+		} catch (err) {
+			res.status(400).send(err.message);
 		}
 	}
 }
