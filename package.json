@@ -9,7 +9,7 @@
     "sequelize-cli": "^6.4.1",
     "sqlite3": "^5.0.11"
   },
-  "name": "projeto-final-m4",
+  "name": "restaurante-api",
   "description": "> Este é um projeto para a avaliação do final do Módulo 4 @ Resilia Educação.",
   "version": "1.0.0",
   "main": "index.js",
