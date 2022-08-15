@@ -1,12 +1,14 @@
 const BebidaController = require('../controllers/BebidaController');
 const { Router } = require('express');
-const route = Router();
+const router = Router();
+const joi = require('../helpers/joiValidation.js');
+const { validate } = require('express-validation');
 
-route
+router
 	.get('/bebidas', BebidaController.pegaTodasBebidas)
 	.get('/bebidas/:id', BebidaController.pegaUmaBebida)
-	.post('/bebidas', BebidaController.criaBebida)
-	.put('/bebidas/:id', BebidaController.atualizaBebida)
+	.post('/bebidas', validate(joi.validarCardapioBebida), BebidaController.criaBebida)
+	.put('/bebidas/:id', validate(joi.validarCardapioBebida), BebidaController.atualizaBebida)
 	.delete('/bebidas/:id', BebidaController.apagaBebida);
 
-module.exports = route;
+module.exports = router;
