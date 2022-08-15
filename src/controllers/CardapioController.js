@@ -22,26 +22,20 @@ class CardapioController {
 		}
 	}
 	static async criaCardapio(req, res) {
-		const { nome, descricao, preco } = req.body;
+		const novoCardapio = req.body;
 		try {
-			const novoCardapio = await database.Cardapios.create({
-				nome,
-				descricao,
-				preco,
-			});
-			return res.status(201).send(novoCardapio);
+			const novoCardapioCriado = await database.Cardapios.create(novoCardapio);
+			return res.status(201).send(novoCardapioCriado);
 		} catch (err) {
 			res.status(500).send(err.message);
 		}
 	}
 	static async atualizaCardapio(req, res) {
 		const { id } = req.params;
-		const { nome, descricao, preco } = req.body;
 		try {
-			const cardapioAtualizado = await database.Cardapios.update(
-				{ nome, descricao, preco },
-				{ where: { id: +id } }
-			);
+			const novasInfo = await req.body;
+			await database.Cardapios.update(novasInfo, { where: { id: +id } });
+			const cardapioAtualizado = await database.Cardapios.findOne({ where: { id: +id } });
 			if (!cardapioAtualizado) return res.status(404).send(`Cardapio de id ${id} não existe`);
 			return res.status(200).send(`Cardápio de id ${id} atualizado`);
 		} catch (err) {
