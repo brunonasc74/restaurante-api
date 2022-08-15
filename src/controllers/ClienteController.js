@@ -7,7 +7,7 @@ class ClienteController {
 			const todosClientes = await database.Clientes.findAll();
 			return res.status(200).send(todosClientes);
 		} catch (err) {
-			res.status(500).send(err);
+			res.status(500).send(err.message);
 		}
 	}
 
@@ -20,7 +20,7 @@ class ClienteController {
 			if (!umCliente) return res.status(404).send(`Cliente de id ${id} não existe`);
 			return res.status(200).send(umCliente);
 		} catch (err) {
-			res.status(500).send(err);
+			res.status(500).send(err.message);
 		}
 	}
 
@@ -31,7 +31,7 @@ class ClienteController {
 			await database.Clientes.create(umCliente);
 			return res.status(201).send('Cliente adicionado com sucesso');
 		} catch (err) {
-			res.status(500).send(err);
+			res.status(500).send(err.message);
 		}
 	}
 
@@ -46,7 +46,7 @@ class ClienteController {
 			if (!clienteEditado) return res.status(404).send(`Cliente de id ${id} não existe`);
 			return res.status(200).send(`Cliente de id ${id} atualizado com sucesso`);
 		} catch (err) {
-			res.status(500).send(err);
+			res.status(500).send(err.message);
 		}
 	}
 
@@ -61,7 +61,33 @@ class ClienteController {
 			await database.Clientes.destroy({ where: { id: +id } });
 			return res.status(200).send(`${umCliente.nome} de id ${id} apagado com sucesso`);
 		} catch (err) {
-			res.status(500).send(err);
+			res.status(500).send(err.message);
+		}
+	}
+
+	// pega todos os pedidos de determinado cliente
+	static async pegaPedidosDeCliente(req, res) {
+		const { id } = req.params;
+		try {
+			const pedidosDeCliente = await database.Pedidos.findAll({ where: { cliente_id: +id } });
+			return res.status(200).send(pedidosDeCliente);
+		} catch (err) {
+			res.status(500).send(err.message);
+		}
+	}
+
+	// apaga todos os pedidos de determinado cliente
+	static async apagaPedidosDeCliente(req, res) {
+		const { id } = req.params;
+		try {
+			// verificação se id selecionado existe em cliente
+			const umCliente = await database.Clientes.findOne({ where: { id: +id } });
+			if (!umCliente) return res.status(404).send(`Pedido de id ${id} não existe`);
+			// apagar id's selecionado
+			await database.Pedidos.destroy({ where: { cliente_id: +id } });
+			return res.status(200).send(`Pedidos de ${umCliente.nome} apagados com sucesso`);
+		} catch (err) {
+			res.status(500).send(err.message);
 		}
 	}
 }
