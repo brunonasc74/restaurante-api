@@ -6,7 +6,7 @@ class BebidaController {
 			const todasBebidas = await database.Bebidas.findAll();
 			return res.status(200).json(todasBebidas);
 		} catch (err) {
-			return res.status(500).json(err.message);
+			return res.status(400).json(err.message);
 		}
 	}
 	static async pegaUmaBebida(req, res) {
@@ -16,7 +16,7 @@ class BebidaController {
 			if (!umaBebida) return res.status(404).send(`Bebida de id ${id} não existe`);
 			return res.status(200).json(umaBebida);
 		} catch (err) {
-			return res.status(500).json(err.message);
+			return res.status(400).json(err.message);
 		}
 	}
 	static async criaBebida(req, res) {
@@ -25,7 +25,7 @@ class BebidaController {
 			const novaBebidaCriada = await database.Bebidas.create(novaBebida);
 			return res.status(201).json(novaBebidaCriada);
 		} catch (err) {
-			res.status(500).send(err.message);
+			res.status(400).send(err.message);
 		}
 	}
 	static async atualizaBebida(req, res) {
@@ -37,7 +37,7 @@ class BebidaController {
 			if (!bebidaAtualizada) return res.status(404).send(`Bebida de id ${id} não existe`);
 			return res.status(200).send(`Bebida de id ${id} atualizada com sucesso`);
 		} catch (err) {
-			res.status(500).send(err.message);
+			res.status(400).send(err.message);
 		}
 	}
 	static async apagaBebida(req, res) {
@@ -48,7 +48,7 @@ class BebidaController {
 			await database.Bebidas.destroy({ where: { id: Number(id) } });
 			return res.status(200).send(`id ${id} deletado`);
 		} catch (err) {
-			return res.status(500).send(err.message);
+			return res.status(400).send(err.message);
 		}
 	}
 }

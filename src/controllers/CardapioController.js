@@ -6,7 +6,7 @@ class CardapioController {
 			const todosCardapios = await database.Cardapios.findAll();
 			return res.status(200).send(todosCardapios);
 		} catch (err) {
-			res.status(500).send(err.message);
+			res.status(400).send(err.message);
 		}
 	}
 	static async pegaUmCardapio(req, res) {
@@ -18,7 +18,7 @@ class CardapioController {
 			if (!umCardapio) return res.status(404).send(`Cardapio de id ${id} não encontrado`);
 			return res.status(200).send(umCardapio);
 		} catch (err) {
-			res.status(500).send(err.message);
+			res.status(400).send(err.message);
 		}
 	}
 	static async criaCardapio(req, res) {
@@ -27,7 +27,7 @@ class CardapioController {
 			const novoCardapioCriado = await database.Cardapios.create(novoCardapio);
 			return res.status(201).send(novoCardapioCriado);
 		} catch (err) {
-			res.status(500).send(err.message);
+			res.status(400).send(err.message);
 		}
 	}
 	static async atualizaCardapio(req, res) {
@@ -39,7 +39,7 @@ class CardapioController {
 			if (!cardapioAtualizado) return res.status(404).send(`Cardapio de id ${id} não existe`);
 			return res.status(200).send(`Cardápio de id ${id} atualizado`);
 		} catch (err) {
-			res.status(500).send(err.message);
+			res.status(400).send(err.message);
 		}
 	}
 	static async deletaCardapio(req, res) {
@@ -51,7 +51,7 @@ class CardapioController {
 			if (!cardapioDeletado) return res.status(404).send(`Cardapio de id ${id} não existe`);
 			return res.status(200).send(`Cardápio de id ${id} deletado com sucesso`);
 		} catch (err) {
-			res.status(500).send(err.message);
+			res.status(400).send(err.message);
 		}
 	}
 }
