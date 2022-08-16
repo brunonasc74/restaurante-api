@@ -78,6 +78,8 @@ npm start
   #### Criando uma Collection
 
 1 - Para realizar nossa requisição vamos criar uma collection, do lado direito selecione o botão `Create`, após escolha a opção `Request Collection`
+
+
   <img src= "./readme-img/create-insominia.png">
 
   2 - Na janela que será aberta, informe o nome da Collection e selecione `Create`
