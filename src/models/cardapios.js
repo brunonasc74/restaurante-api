@@ -17,12 +17,11 @@ module.exports = (sequelize, DataTypes) => {
 			categoria: DataTypes.STRING,
 			descricao: DataTypes.STRING,
 			imagem: DataTypes.STRING,
-			porcao: DataTypes.STRING,
-			preco: DataTypes.FLOAT,
+			preco: DataTypes.FLOAT
 		},
 		{
 			sequelize,
-			modelName: 'Cardapios',
+			modelName: 'Cardapios'
 		}
 	);
 	return Cardapios;
