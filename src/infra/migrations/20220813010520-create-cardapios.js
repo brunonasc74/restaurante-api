@@ -6,39 +6,36 @@ module.exports = {
 				allowNull: false,
 				autoIncrement: true,
 				primaryKey: true,
-				type: Sequelize.INTEGER,
+				type: Sequelize.INTEGER
 			},
 			nome: {
 				allowNull: false,
-				type: Sequelize.STRING,
+				type: Sequelize.STRING
 			},
 			categoria: {
-				type: Sequelize.STRING,
+				type: Sequelize.STRING
 			},
 			descricao: {
-				type: Sequelize.STRING,
+				type: Sequelize.STRING
 			},
 			imagem: {
-				type: Sequelize.STRING,
-			},
-			porcao: {
-				type: Sequelize.STRING,
+				type: Sequelize.STRING
 			},
 			preco: {
 				allowNull: false,
-				type: Sequelize.FLOAT,
+				type: Sequelize.FLOAT
 			},
 			createdAt: {
 				allowNull: false,
-				type: Sequelize.DATE,
+				type: Sequelize.DATE
 			},
 			updatedAt: {
 				allowNull: false,
-				type: Sequelize.DATE,
-			},
+				type: Sequelize.DATE
+			}
 		});
 	},
 	async down(queryInterface, Sequelize) {
 		await queryInterface.dropTable('Cardapios');
-	},
+	}
 };
