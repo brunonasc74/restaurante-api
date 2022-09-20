@@ -130,7 +130,7 @@ module.exports = {
 					nome: 'Barreado',
 					categoria: 'sul',
 					descricao:
-						'O barreado é um prato típico do Paraná. É uma iguaria feita à base de carne bovina cozida com condimentos, utilizando tradicionalmente como recipiente uma panela de barro hermeticamente fechada com goma de farinha de mandioca. Além disso, no seu preparo são utilizados também cebola, alho, sal e pimenta a gosto, bacon, cominho e louro.',
+						'O barreado é um prato típico do Paraná. É uma iguaria feita à base de carne bovina cozida com condimentos, utilizando tradicionalmente como recipiente uma panela de barro hermeticamente fechada com goma de farinha de mandioca.',
 					imagem:
 						'https://brunaxavier.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F59a7d6c0-db4d-440e-80d4-62c50e90615f%2FUntitled.png?table=block&id=6b81abd4-46dd-4584-b75c-82a5d52db308&spaceId=b7325d22-32aa-4fc8-96b8-823cede58c3d&width=1000&userId=&cache=v2',
 					preco: 58.0,
@@ -152,7 +152,7 @@ module.exports = {
 					nome: 'Tutu de feijão',
 					categoria: 'sudeste',
 					descricao:
-						'É feito com feijão cozido, refogado e, depois moído, e engrossado com farinha de mandioca ou de milho. Ele costuma ser incrementado com pedaços de bacon frito, cebola e alho. É normalmente associado à culinária típica de Minas Gerais e de São Paulo, porém, também pode ser encontrado nas cidades interioranas do estado do Rio de Janeiro',
+						'É feito com feijão cozido, refogado e, depois moído, e engrossado com farinha de mandioca ou de milho. Ele costuma ser incrementado com pedaços de bacon frito, cebola e alho.',
 					imagem:
 						'https://www.penaestrada.blog.br/wp-content/uploads/2021/02/comidas-tipicas-do-brasil-tutu-de-feijao-1.jpg.webp',
 					preco: 48.0,
