@@ -7,9 +7,7 @@ app.use(express.json());
 app.use(cors({ origin: '*' }));
 
 router(app);
-app.get('*', function (req, res) {
-	res.send('public/index.html');
-});
+app.use((_, res) => res.redirect('/clientes'));
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`servidor rodando na porta ${port}`));
