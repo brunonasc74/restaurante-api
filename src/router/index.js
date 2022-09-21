@@ -10,7 +10,4 @@ module.exports = (app) => {
 	app.use(bebidas);
 	app.use(pedidos);
 	app.use(mesas);
-	app.get('*', function (req, res) {
-		res.send('public/index.html');
-	});
 };
